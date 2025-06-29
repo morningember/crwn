@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/Directory.css";
+import "../css/Directory.scss";
 import MenuItem from "./MenuItem";
 
 const Directory = () => {
@@ -8,7 +8,7 @@ const Directory = () => {
       title: "hats",
       imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
       id: 1,
-      linkUrl: "hats",
+      linkUrl: "/hats",
     },
     {
       title: "jackets",
@@ -40,8 +40,8 @@ const Directory = () => {
 
   return (
     <div className="directory-menu">
-      {data.map(({ title, imageUrl, id, size }) => (
-        <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
+      {data.map(({ id, ...otherProps }) => (
+        <MenuItem key={id} {...otherProps} />
       ))}
     </div>
   );
